@@ -10,6 +10,7 @@ db/
 dbd/
 O.linux-x86_64/
 O.Common/
+O.*
 envPaths
 bin/
 as/
