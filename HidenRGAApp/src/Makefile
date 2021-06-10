@@ -12,21 +12,26 @@ DBD += HidenRGA.dbd
 # HidenRGA.dbd will be made up from these files:
 HidenRGA_DBD += base.dbd
 # BEGIN ANSIBLE MANAGED BLOCK
-ifneq ($(RECCASTER),)
-HidenRGA_DBD += reccaster.dbd
-HidenRGA_LIBS += reccaster
-endif
+#ifneq ($(RECCASTER),)
+#HidenRGA_DBD += reccaster.dbd
+#HidenRGA_LIBS += reccaster
+#endif
 # END ANSIBLE MANAGED BLOCK
 HidenRGA_DBD += asyn.dbd
-HidenRGA_DBD += stream.dbd
+HidenRGA_DBD += calc.dbd
+#HidenRGA_DBD += stream.dbd
 HidenRGA_DBD += drvAsynIPPort.dbd
-HidenRGA_DBD += aSubRecord.dbd
-HidenRGA_DBD += system.dbd
+#HidenRGA_DBD += aSubRecord.dbd
+#HidenRGA_DBD += system.dbd
 HidenRGA_DBD += devIocStats.dbd
-HidenRGA_DBD += asSupport.dbd
+#HidenRGA_DBD += asSupport.dbd
 HidenRGA_DBD += ether_ip.dbd
 HidenRGA_DBD += measValue.dbd
+HidenRGA_DBD += asSupport.dbd
 HidenRGA_DBD += caPutLog.dbd
+HidenRGA_DBD += stream.dbd
+HidenRGA_DBD += system.dbd
+HidenRGA_DBD += reccaster.dbd
 
 # HidenRGA_registerRecordDeviceDriver.cpp derives from HidenRGA.dbd
 HidenRGA_SRCS += HidenRGA_registerRecordDeviceDriver.cpp
@@ -41,8 +46,9 @@ HidenRGA_SRCS += measValue.c
 #HidenRGA_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
 # Link in the code from the support library
-HidenRGA_LIBS += asyn stream
+HidenRGA_LIBS += asyn stream calc
 HidenRGA_LIBS += devIocStats autosave ether_ip caPutLog
+HidenRGA_LIBS += reccaster
 
 # NOTE: To build SNL programs, SNCSEQ must be defined
 # in the <top>/configure/RELEASE file
